@@ -26,9 +26,9 @@ print("\nŽmonių sąrašas:")
 for zmogus in sarasas:
     print(zmogus)
 
-# Save content
-FileReader.save_to_file("zmoniu_sarasas.txt", sarasas)
-
-# Read content
-zmoniu_sarasas = FileReader.read_from_file("zmoniu_sarasas.txt")
-print(zmoniu_sarasas)
+# Skaičiuojam vidutinį amžių
+if sarasas:
+    vid_amzius = sum(z.amzius for z in sarasas) / len(sarasas)
+    print(f"\nVidutinis amžius: {vid_amzius:.1f} m.")
+else:
+    print("\nSąrašas tuščias – nėra ką skaičiuoti.")
