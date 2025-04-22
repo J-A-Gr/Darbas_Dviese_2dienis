@@ -1,6 +1,7 @@
 from file_reader import FileReader
 from klase_zmogus import Zmogus
 import os
+from skaiciuoti_vidurki import skaiciuoti_vidurki_is_failo
 
 # Nuskaityk esamus žmones, jei failas egzistuoja
 if os.path.exists("zmoniu_sarasas.pkl"):
@@ -26,9 +27,13 @@ print("\nŽmonių sąrašas:")
 for zmogus in sarasas:
     print(zmogus)
 
-# Skaičiuojam vidutinį amžių
-if sarasas:
-    vid_amzius = sum(z.amzius for z in sarasas) / len(sarasas)
-    print(f"\nVidutinis amžius: {vid_amzius:.1f} m.")
-else:
-    print("\nSąrašas tuščias – nėra ką skaičiuoti.")
+# Save content
+FileReader.save_to_file("zmoniu_sarasas.txt", sarasas)
+
+# Read content
+zmoniu_sarasas = FileReader.read_from_file("zmoniu_sarasas.txt")
+print(zmoniu_sarasas)
+
+# Kvietimas:
+skaiciuoti_vidurki_is_failo("zmoniu_sarasas.txt")
+
