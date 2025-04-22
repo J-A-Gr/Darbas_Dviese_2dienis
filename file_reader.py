@@ -1,6 +1,6 @@
 class FileReader:
     @staticmethod
-    def save_to_file(filename, content, mode='w'):
+    def save_to_file(filename, content, mode='a'):
         """Save content to a .txt file. Accepts string or list of strings."""
         try:
             if isinstance(content, list):
