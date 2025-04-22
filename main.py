@@ -1,7 +1,6 @@
 from file_reader import FileReader
 from klase_zmogus import Zmogus
 import os
-from skaiciuoti_vidurki import skaiciuoti_vidurki_is_failo
 
 # Nuskaityk esamus žmones, jei failas egzistuoja
 if os.path.exists("zmoniu_sarasas.pkl"):
@@ -33,7 +32,3 @@ FileReader.save_to_file("zmoniu_sarasas.txt", sarasas)
 # Read content
 zmoniu_sarasas = FileReader.read_from_file("zmoniu_sarasas.txt")
 print(zmoniu_sarasas)
-
-# Kvietimas:
-skaiciuoti_vidurki_is_failo("zmoniu_sarasas.txt")
-
