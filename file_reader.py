@@ -1,14 +1,17 @@
 class FileReader:
     @staticmethod
-    def save_to_file(filename, content):
-        """Save content to a .txt file."""
+    def save_to_file(filename, content, mode='w'):
+        """Save content to a .txt file. Accepts string or list of strings."""
         try:
-            with open(filename, 'w', encoding='utf-8') as file:
+            if isinstance(content, list):
+                content = '\n'.join(str(item) for item in content)
+            with open(filename, mode, encoding='utf-8') as file:
                 file.write(content)
             print(f"Content saved to '{filename}'.")
         except Exception as e:
-            print(f"Error saving to file: {e}")
-            
+            print(f"Error saving to file '{filename}': {e}")
+
+
     @staticmethod
     def read_from_file(filename):
         """Read content from a .txt file."""
